@@ -1,0 +1,40 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  msTimer timer10ms;
+  message Actuator_msg ActuatorMSG;
+}
+
+on start
+{
+ setTimer(timer10ms, 10);
+   ActuatorMSG.ActPresence_sgn = 0;
+}
+
+on timer timer10ms
+{
+  setTimer(timer10ms, 10);
+  ActuatorMSG.ActPresence_sgn = 1;
+  output(ActuatorMSG);
+}
+
+on key 's'
+{
+  if(ActuatorMSG.ActSteps_sgn < 3000)
+  {
+    ActuatorMSG.ActSteps_sgn += 100;
+  }
+}
+
+on key 'f'
+{
+    if(ActuatorMSG.ActSteps_sgn > 0)
+  {
+    ActuatorMSG.ActSteps_sgn -= 100;
+  }
+}
