@@ -23,7 +23,7 @@ on timer timer10ms
   output(ActuatorMSG);
 }
 
-on key 's'
+on key 'a'
 {
   if(ActuatorMSG.ActSteps_sgn < 3000)
   {
